@@ -1,0 +1,37 @@
+<dom-module id="lifecycle-element">
+
+  <template>
+    <button id="btn">Hello World</button>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'lifecycle-element',
+      created: function() {
+        this.log("created");
+        this.addEventListener('click', function(){
+          this.remove();
+        });
+      },
+      ready: function() {
+        this.log("ready");
+      },
+      attached: function() {
+        this.log("attached");
+      },
+      detached: function() {
+        this.log("detached");
+      },
+      attributeChanged: function(name, oldValue, newValue) {
+        console.log('%s attribute changed froom %s to %s', name, oldValue, newValue);
+      },
+      updateAttribute: function(cycle){
+        this.setAttribute('class', cycle);
+      },log: function(cycle) {
+        console.log("****" + cycle);
+        this.$ && console.dir(this.$.btn);
+        this.updateAttribute(cycle);
+      }
+    });
+  </script>
+</dom-module>
