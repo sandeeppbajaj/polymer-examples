@@ -1,0 +1,27 @@
+<dom-module id="prop-element">
+  <template>
+    <h1>[[name]]</h1>
+    <h2>[[position]]</h2>
+    <h3>Name Lenght: [[length]] characters</h3>
+  </template>
+  <script>
+    Polymer({
+      is: 'prop-element',
+      properties: {
+        name: String,
+        position: {
+          type: String,
+          value: 'Software Developer',
+          reflectToAttribute: true //Makes this attribute accessible in light DOM with default value
+        },
+        length: {
+          readOnly: true,
+          computed: 'computedLength(name)'
+        }
+      },
+      computedLength: function(name) {
+        return name.length;
+      }
+    });
+  </script>
+</dom-module>
