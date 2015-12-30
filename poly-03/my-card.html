@@ -1,0 +1,21 @@
+<dom-module id="my-card">
+  <template>
+    <business-card></business-card>
+    <business-card class="yellow"></business-card>
+    <style>
+      business-card{
+        --custom-card-color: red;
+        --custom-text-color: white;
+      }
+      .yellow{
+        --custom-card-color: yellow;
+        --custom-text-color: black;
+      }
+    </style>
+  </template>
+  <script>
+    Polymer({
+      is: "my-card"
+    });
+  </script>
+</dom-module>
