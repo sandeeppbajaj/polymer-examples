@@ -1,0 +1,15 @@
+<link rel="import" href="child-element.html">
+<dom-module id="parent-element">
+  <template>
+    <h3>Parent</h3>
+    <input type="text" value="{{parentData::input}}">
+    <child-element data="{{parentData}}"></child-element>
+    <!-- To enforce one-way data binding use square brackets -->
+    <!-- <child-element data="[[parentData]]"></child-element> -->
+  </template>
+  <script>
+    Polymer({
+      is: "parent-element",
+    });
+  </script>
+</dom-module>
